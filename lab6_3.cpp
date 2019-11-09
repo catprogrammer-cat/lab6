@@ -1,3 +1,7 @@
+// Calculate the number and the sum of even elements of array
+// int
+// 14
+
 #include <iostream>
 #include <cstdlib> // using random function
 #include <ctime>
@@ -48,3 +52,6 @@ int main()
    
     return 0;
 }
+// [5][6][3][4][7][3][5][5][3][2][1][4]                                                                                     
+// Quantity of even element of array: 4                                                                                     
+// Sum of even element of array: 16 

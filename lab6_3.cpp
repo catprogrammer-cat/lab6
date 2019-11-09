@@ -1,33 +1,50 @@
 #include <iostream>
+#include <cstdlib> // using random function
+#include <ctime>
 
 using namespace std;
-    
-    void array_show_odd_quantity(int quantity){
-        // int quantity = 14;
-    
-        int sum = 0;
-        int quantity_even = 0;
-        int array[quantity];
-    
-        for(int i = 0; i <= quantity; i++){
-            cout << "Enter " << i << " element ";
-            cin >> array[i];
-            if(array[i] % 2 == 0 && array[i] != 0){
-                sum += array[i];
-                quantity_even++;
-            }
-            
-        }
-        cout << "sum is " << sum << endl;
-        cout << "quantity of even elements is " << quantity_even;
+
+void fill_randomly_array(int array[],int quantity){
+    srand ( time(0) );
+    for(int i = 0; i < quantity; i++){
+        array[i] = rand() % 10 + 1;
     }
+}
+void print_array(int array[],int quantity){
+    for(int i=0;i<quantity;i++){
+        cout << "[" << array[i] << "]";
+    }
+}
+int quantity_even_element_array(int array[],int quantity){
+    int quantity_even_element = 0;
+    for(int i=0;i < quantity;i++){
+        if(array[i] % 2 == 0){
+            quantity_even_element++;
+        }    
+    } 
+    return quantity_even_element;
+}
+int sum_even_element_array(int array[],int quantity){
+    int sum = 0;
+    for(int i=0;i < quantity;i++){
+        if(array[i] % 2 == 0){
+            sum+=array[i];
+        } 
+    }
+    return sum;
+}
+
+
+
 int main()
 {
+    int array[12];
     
+    fill_randomly_array(array,12);
+    print_array(array,12);
     
-    array_show_odd_quantity(5);
+    cout << "\nQuantity of even element of array: " << quantity_even_element_array(array,12) << endl;
+    cout << "Sum of even element of array: " << sum_even_element_array(array,12) << endl;
+   
     return 0;
 }
-//input:  4 4 2 0 0 0 0 0 0 0 0 0 0 0 0 
-//result: sum is 10                                                                                                                
-//        quantity of even elements is 3 
